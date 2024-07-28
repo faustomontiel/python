@@ -119,23 +119,94 @@
 #print(is_power_of(64,4))    # Should be True
 #print(is_power_of(70,10))   # Should be False
 
+
+#################################################Module 3 Graded Assessment#################################################
+
+
+
 #number = 1 # Initialize the variable
 #while number < 7: # Complete the while loop condition
 #    print(number, end=" ")
 #    number + 1 # Increment the variable
 
-def rows_asterisks(rows):
-    # Complete the outer loop range to control the number of rows
-    for x in range(1,rows+1): 
-        # Complete the inner loop range to control the number of 
-        # asterisks per row
-        for y in range(x): 
-            # Prints one asterisk and one space
-            print("*", end=" ")
-        # An empty print() function inserts a line break at the 
-        # end of the row 
-        print()
-
-
-rows_asterisks(5)
+#def rows_asterisks(rows):
+#    # Complete the outer loop range to control the number of rows
+#    for x in range(1,rows+1): 
+#        # Complete the inner loop range to control the number of 
+#        # asterisks per row
+#        for y in range(x): 
+#            # Prints one asterisk and one space
+#            print("*", end=" ")
+#        # An empty print() function inserts a line break at the 
+#        # end of the row 
+#        print()
+#
+#
+#rows_asterisks(5)
 # Should print the asterisk rows shown above
+
+
+#Fill in the blanks to complete the “counter” function. This function should count down from the “start” to “stop” variables when “start” is bigger than “stop”. 
+#Otherwise, it should count up from “start” to “stop”. 
+#Complete the code so that a function call like “counter(3, 1)” will return “Counting down: 3, 2, 1” and “counter(2, 5)” will return “Counting up: 2, 3, 4, 5”.
+#def counter(start, stop):
+#    if start > stop:
+#        return_string = "Counting down: "
+#        while start>=stop: # Complete the while loop
+#            return_string+=str(start) # Add the numbers to the "return_string"
+#            if start > stop:
+#                return_string += ","
+#            start-=1 # Increment the appropriate variable
+#    else:
+#        return_string = "Counting up: "
+#        while start<=stop: # Complete the while loop
+#            return_string+=str(start) # Add the numbers to the "return_string"
+#            if start < stop:
+#                return_string += ","
+#            start+=1 # Increment the appropriate variable
+#    return return_string
+#
+#
+#
+#print(counter(1, 10)) # Should be "Counting up: 1,2,3,4,5,6,7,8,9,10"
+#print(counter(2, 1)) # Should be "Counting down: 2,1"
+#print(counter(5, 5)) # Should be "Counting up: 5
+
+#Fill in the blanks to complete the “all_numbers” function. 
+#This function should return a space-separated string of all numbers, 
+#from the starting   “minimum” variable  up to and including the “maximum” variable that's passed into the function. 
+#Complete the for loop so that a function call like “all_numbers(3,6)” will return the numbers “3 4 5 6”.  
+
+##def all_numbers(minimum, maximum):
+##
+##    return_string = "" # Initializes variable as a string
+##
+##    # Complete the for loop with a range that includes all 
+##    # numbers up to and including the "maximum" value.
+##    for n in range(minimum,maximum+1):
+##
+##        # Complete the body of the loop by appending the number
+##        # followed by a space to the "return_string" variable.
+##        return_string += str(n) 
+##
+##    # This .strip command will remove the final " " space 
+##    # at the end of the "return_string".
+##    return return_string.strip()
+##
+##
+##print(all_numbers(2,6))  # Should be 2 3 4 5 6
+##print(all_numbers(3,10)) # Should be 3 4 5 6 7 8 9 10
+##print(all_numbers(-1,1)) # Should be -1 0 1
+##print(all_numbers(0,5))  # Should be 0 1 2 3 4 5
+##print(all_numbers(0,0))  # Should be 0
+
+
+#num1 = 0
+#num2 = 0
+#
+#for x in range(5):
+#    num1 = x
+#    for y in range(14):
+#        num2 = y + 3
+#
+#print(num1 + num2) # 20
