@@ -999,47 +999,121 @@
 #print(names)
 #print(sorted(names, key=len))
 
-def get_event_date(event):
-  return event.date
+#def get_event_date(event):
+#  return event.date
+#
+#def current_users(events):
+#  events.sort(key=get_event_date)
+#  machines = {}
+#  for event in events:
+#    if event.machine not in machines:
+#      machines[event.machine] = set()
+#    if event.type == "login":
+#      machines[event.machine].add(event.user)
+#    elif event.type == "logout": 
+#       if event.user in machines[event.machine] and event.type == "login":
+#        machines[event.machine].remove(event.user)
+#  return machines
+#
+#def generate_report(machines):
+#  for machine, users in machines.items():
+#    if len(users) > 0:
+#      user_list = ", ".join(users)
+#      print("{}: {}".format(machine, user_list))
+#
+#class Event:
+#  def __init__(self, event_date, event_type, machine_name, user):
+#    self.date = event_date
+#    self.type = event_type
+#    self.machine = machine_name
+#    self.user = user
+#
+#
+#
+#events = [
+#    Event('2020-01-21 12:45:56', 'login', 'myworkstation.local', 'jordan'),
+#    Event('2020-01-22 15:53:42', 'logout', 'webserver.local', 'jordan'),
+#    Event('2020-01-21 18:53:21', 'login', 'webserver.local', 'lane'),
+#    Event('2020-01-22 10:25:34', 'logout', 'myworkstation.local', 'jordan'),
+#    Event('2020-01-21 08:20:01', 'login', 'webserver.local', 'jordan'),
+#    Event('2020-01-23 11:24:35', 'logout', 'mailserver.local', 'chris'),
+#]
+#
+#users = current_users(events)
+#print(users)
+#
+#generate_report(users)
 
-def current_users(events):
-  events.sort(key=get_event_date)
-  machines = {}
-  for event in events:
-    if event.machine not in machines:
-      machines[event.machine] = set()
-    if event.type == "login":
-      machines[event.machine].add(event.user)
-    elif event.type == "logout": 
-       if event.user in machines[event.machine] and event.type == "login":
-        machines[event.machine].remove(event.user)
-  return machines
 
-def generate_report(machines):
-  for machine, users in machines.items():
-    if len(users) > 0:
-      user_list = ", ".join(users)
-      print("{}: {}".format(machine, user_list))
+#import os
+#import csv
+#
+## Create a file with data in it
+#def create_file(filename):
+#  with open(filename, "w") as file:
+#    file.write("name,color,type\n")
+#    file.write("carnation,pink,annual\n")
+#    file.write("daffodil,yellow,perennial\n")
+#    file.write("iris,blue,perennial\n")
+#    file.write("poinsettia,red,perennial\n")
+#    file.write("sunflower,yellow,annual\n")
+#
+#
+## Read the file contents and format the information about each row
+#def contents_of_file(filename):
+#  return_string = ""
+#
+#  # Call the function to create the file 
+#  create_file(filename)
+#
+#  # Open the file
+#  with open('flowers.csv') as flowers:
+#    # Read the rows of the file into a dictionary
+#    reader = csv.DictReader(flowers)
+#    # Process each item of the dictionary
+#    for row in reader:
+#      return_string += "a {} {} is {}\n".format(row["color"], row["name"], row["type"])
+#  return return_string
+#
+#
+##Call the function
+#print(contents_of_file("flowers.csv"))
 
-class Event:
-  def __init__(self, event_date, event_type, machine_name, user):
-    self.date = event_date
-    self.type = event_type
-    self.machine = machine_name
-    self.user = user
+# Using the CSV file of flowers again, fill in the gaps of the contents_of_file function to process the data without turning it into a dictionary. How do you skip over the header record with the field names?
 
 
+import os
+import csv
 
-events = [
-    Event('2020-01-21 12:45:56', 'login', 'myworkstation.local', 'jordan'),
-    Event('2020-01-22 15:53:42', 'logout', 'webserver.local', 'jordan'),
-    Event('2020-01-21 18:53:21', 'login', 'webserver.local', 'lane'),
-    Event('2020-01-22 10:25:34', 'logout', 'myworkstation.local', 'jordan'),
-    Event('2020-01-21 08:20:01', 'login', 'webserver.local', 'jordan'),
-    Event('2020-01-23 11:24:35', 'logout', 'mailserver.local', 'chris'),
-]
+# Create a file with data in it
+def create_file(filename):
+  with open(filename, "w") as file:
+    file.write("name,color,type\n")
+    file.write("carnation,pink,annual\n")
+    file.write("daffodil,yellow,perennial\n")
+    file.write("iris,blue,perennial\n")
+    file.write("poinsettia,red,perennial\n")
+    file.write("sunflower,yellow,annual\n")
 
-users = current_users(events)
-print(users)
+# Read the file contents and format the information about each row
+def contents_of_file(filename):
+  return_string = ""
 
-generate_report(users)
+  # Call the function to create the file 
+  create_file(filename)
+
+  # Open the file
+  with open("flowers.csv") as flowers:
+    # Read the rows of the file
+    rows = csv.reader(flowers)
+    next(rows)
+    # Process each row
+    for row in rows:
+      name, color, type = row
+      # Format the return string for data rows only
+
+      return_string += "a {} {} is {}\n".format(name,color,type)
+  return return_string
+
+#Call the function
+print(contents_of_file("flowers.csv"))
